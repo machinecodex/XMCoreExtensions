@@ -26,4 +26,6 @@
 + (id) codexFloatingWindowTitleGradient;
 + (id) codexFloatingWindowTitleInactiveGradient;
 
++ (id) popoverHeaderGradient;
+
 @end

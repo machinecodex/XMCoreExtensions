@@ -202,72 +202,43 @@
 	NSColor * color3 = [NSColor colorWithCalibratedRed:val3 green:val3 blue:val3 alpha:alpha];
 	NSColor * color4 = [NSColor colorWithCalibratedRed:val4 green:val4 blue:val4 alpha:alpha];
     
-	return [NSGradient glossyGradientWithMidpoint:0.45 color1:color1 color2:color2 color3:color3 color4:color4];
+	return [NSGradient glossyGradientWithMidpoint:0.5 color1:color1 color2:color2 color3:color3 color4:color4];
 }
 
 + (id) codexFloatingWindowTitleGradient {
-	
-	float alpha = 1.0;
-	
-	CGFloat position1 = 0;
-	float val1 = 0.30;
-	NSColor * color1 = [NSColor colorWithCalibratedRed:val1 green:val1 blue:val1 alpha:alpha];
-	
-	CGFloat position2 = 11.5/23;
-	float val2 = 0.28;
-	NSColor * color2 = [NSColor colorWithCalibratedRed:val2 green:val2 blue:val2 alpha:alpha];
-	
-	CGFloat position3 = 11.5/23;
-	float val3 = 0.20;
-	NSColor * color3 = [NSColor colorWithCalibratedRed:val3 green:val3 blue:val3 alpha:alpha];
-	
-	CGFloat position4 = 1;
-	float val4 = 0.22;
-	NSColor * color4 = [NSColor colorWithCalibratedRed:val4 green:val4 blue:val4 alpha:alpha];
-	
-	id newInstance = [[[self class] alloc] initWithColorsAndLocations: 
-					  
-					  color1, position1,
-					  color2, position2,
-					  color3, position3,
-					  color4, position4,
-					  
-					  nil];
-	
-	return [newInstance autorelease];
+    
+    float alpha = 0.8;
+    
+    NSColor * a = [NSColor colorWithCalibratedWhite:0.30 alpha:alpha];
+	NSColor * b = [NSColor colorWithCalibratedWhite:0.28 alpha:alpha];
+	NSColor * c = [NSColor colorWithCalibratedWhite:0.20 alpha:alpha];
+	NSColor * d = [NSColor colorWithCalibratedWhite:0.22 alpha:alpha];
+    
+    return [self glossyGradientWithMidpoint:0.5 color1:a color2:b color3:c color4:d];
 }
 
 + (id) codexFloatingWindowTitleInactiveGradient {
 	
-	float alpha = 0.15;
-	
-	CGFloat position1 = 0;
-	float val1 = 0.20;
-	NSColor * color1 = [NSColor colorWithCalibratedRed:val1 green:val1 blue:val1 alpha:alpha];
-	
-	CGFloat position2 = 11.5/23;
-	float val2 = 0.28;
-	NSColor * color2 = [NSColor colorWithCalibratedRed:val2 green:val2 blue:val2 alpha:alpha];
-	
-	CGFloat position3 = 11.5/23;
-	float val3 = 0.15;
-	NSColor * color3 = [NSColor colorWithCalibratedRed:val3 green:val3 blue:val3 alpha:alpha];
-	
-	CGFloat position4 = 1;
-	float val4 = 0.0;
-	NSColor * color4 = [NSColor colorWithCalibratedRed:val4 green:val4 blue:val4 alpha:alpha];
-	
-	id newInstance = [[[self class] alloc] initWithColorsAndLocations: 
-					  
-					  color1, position1,
-					  color2, position2,
-					  color3, position3,
-					  color4, position4,
-					  
-					  nil];
-	
-	return [newInstance autorelease];
+	float alpha = 0.45;
+    
+    NSColor * a = [NSColor colorWithCalibratedWhite:0.20 alpha:alpha];
+	NSColor * b = [NSColor colorWithCalibratedWhite:0.25 alpha:alpha];
+	NSColor * c = [NSColor colorWithCalibratedWhite:0.20 alpha:alpha];
+	NSColor * d = [NSColor colorWithCalibratedWhite:0.15 alpha:alpha];
+    
+    return [self glossyGradientWithMidpoint:0.5 color1:a color2:b color3:c color4:d];
 }
 
++ (id) popoverHeaderGradient {
+    
+	float alpha = 0.15;
+    
+    NSColor * a = [NSColor colorWithCalibratedWhite:0.25 alpha:alpha];
+	NSColor * b = [NSColor colorWithCalibratedWhite:0.22 alpha:alpha];
+	NSColor * c = [NSColor colorWithCalibratedWhite:0.20 alpha:alpha];
+	NSColor * d = [NSColor colorWithCalibratedWhite:0.15 alpha:alpha];
+    
+    return [self glossyGradientWithMidpoint:0.2 color1:a color2:b color3:c color4:d];
+}
 
 @end

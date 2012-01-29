@@ -27,6 +27,31 @@
 	return date;
 }
 
+- (NSString *) longDateString {
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+	[dateFormatter setDateStyle:NSDateFormatterLongStyle];
+	[dateFormatter setLocale:[NSLocale currentLocale]];
+	
+	NSString * date = [dateFormatter stringFromDate:self];
+	[dateFormatter release];
+	return date;
+}
+
+- (NSString *) fullDateString {
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDoesRelativeDateFormatting:YES];
+	[dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+	[dateFormatter setDateStyle:NSDateFormatterFullStyle];
+	[dateFormatter setLocale:[NSLocale currentLocale]];
+	
+	NSString * date = [dateFormatter stringFromDate:self];
+	[dateFormatter release];
+	return date;
+}
+
 - (NSString *) timeString {
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -95,6 +120,19 @@
 #pragma mark -
 #pragma mark Relative Dates
 
+- (BOOL) isSameDayAs:(NSDate *)date {
+    
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    
+    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+    NSDateComponents* comp1 = [calendar components:unitFlags fromDate:self];
+    NSDateComponents* comp2 = [calendar components:unitFlags fromDate:date];
+    
+    return [comp1 day]  == [comp2 day] &&
+    [comp1 month] == [comp2 month] &&
+    [comp1 year]  == [comp2 year];
+}
+
 - (id) dateByAddingTimeInterval:(NSTimeInterval)seconds {
 	
 	NSDate * date = [NSDate dateWithString:[self description]];
@@ -113,6 +151,7 @@
 	// Create date zero time
 	NSDateComponents * comps = [[[NSDateComponents alloc] init] autorelease];
 	[comps setDay:day]; [comps setMonth:month]; [comps setYear:year];
+    [comps setHour:0]; [comps setMinute:0]; [comps setSecond:0];
 	
 	return [calendar dateFromComponents:comps]; 
 }

@@ -73,4 +73,28 @@
 	return [newInstance autorelease];   
 }
 
++ (id) glossyGradientWithTint:(NSColor *)tint andAlpha:(CGFloat)alpha withMode:(NSUInteger)mode {
+    
+    NSColor * highlight = mode ? [NSColor blackColor] : [NSColor whiteColor];
+    
+    NSColor * c1 = [[tint blendedColorWithFraction:0.45 ofColor:highlight] colorWithAlphaComponent:alpha];
+    NSColor * c2 = [[tint blendedColorWithFraction:0.20 ofColor:highlight] colorWithAlphaComponent:alpha];
+    NSColor * c3 = [[tint blendedColorWithFraction:0.15 ofColor:highlight] colorWithAlphaComponent:alpha];
+    NSColor * c4 = [[tint blendedColorWithFraction:0.05 ofColor:highlight] colorWithAlphaComponent:alpha];
+    
+    return [self glossyGradientWithMidpoint:0.5 color1:c1 color2:c2 color3:c3 color4:c4];
+}
+
++ (id) glossyGradientWithTint:(NSColor *)tint andAlpha:(CGFloat)alpha {
+        
+    return [self glossyGradientWithTint:tint andAlpha:alpha withMode:1];
+}
+
++ (id) glossyGradientWithTint:(NSColor *)tint {
+    
+    CGFloat alpha = 0.25;
+    return [self glossyGradientWithTint:tint andAlpha:alpha];
+}
+
+
 @end

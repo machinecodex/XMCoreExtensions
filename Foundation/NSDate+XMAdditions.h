@@ -19,6 +19,8 @@
 - (NSInteger) second;
 
 - (NSString *) dateString;
+- (NSString *) longDateString;
+- (NSString *) fullDateString;
 - (NSString *) timeString;
 
 - (NSDate *) firstMinute;
@@ -40,6 +42,7 @@
 
 - (NSUInteger) weekNumberForTimeZone:(NSTimeZone *)timeZone;
 
+- (BOOL) isSameDayAs:(NSDate *)date;
 - (BOOL) isToday;
 - (BOOL) isApresMatin;
 - (BOOL) isFirstDayOfWeek;
